@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: shifa-application-service
+spec:
+  selector:
+    app: shifa-application
+  ports:
+  - port: 8080
+    protocol: TCP
+    targetPort: 8080

@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shifa-application-deployment
+spec:
+  selector:
+    matchLabels:
+      app: shifa-application
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: shifa-application
+    spec:
+      containers:
+      - name: shifa-application
+        image: nanajanashia/argocd-app:1.0
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8080
